@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElectronicY – Điện máy chính hãng, giao lắp tận nơi</title>
+  <meta name="description" content="Mua tivi, tủ lạnh, máy lạnh, máy giặt, laptop, điện thoại chính hãng. Giao và lắp đặt tận nhà, đổi trả 30 ngày." />
+  <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+</head>
+<body>
+  <header class="hdr">
+    <div class="hdr-in">
+      <a class="logo" href="#/"><img src="assets/logo-mark.svg" alt="" /><b>ElectronicY</b></a>
+      <form class="find" id="findForm" role="search">
+        <input id="findInput" type="search" placeholder="Bạn tìm tivi, máy lạnh, iPhone…" aria-label="Tìm sản phẩm" />
+        <button type="submit" aria-label="Tìm"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <nav class="hdr-act">
+        <a href="#/ho-tro" class="hdr-link"><i class="fa-solid fa-shield-halved"></i><span>Bảo hành</span></a>
+        <a href="#/don-hang" class="hdr-link"><i class="fa-solid fa-box"></i><span>Đơn hàng</span></a>
+        <a href="#/gio-hang" class="hdr-link cart"><i class="fa-solid fa-cart-shopping"></i><span>Giỏ hàng</span><em id="cartCount" hidden>0</em></a>
+        <a href="#/dang-nhap" class="hdr-link acct" id="acctLink"><i class="fa-regular fa-user"></i><span id="acctName">Đăng nhập</span></a>
+      </nav>
+    </div>
+    <div class="cats" id="cats"></div>
+  </header>
+
+  <!-- Dòng chạy khuyến mãi -->
+  <div class="live" id="live" aria-label="Tin khuyến mãi">
+    <div class="live-in">
+      <span class="live-tag"><i></i>LIVE</span>
+      <div class="live-track"><div class="live-run" id="liveRun"></div></div>
+      <a class="live-btn" href="#/khuyen-mai">Xem chi tiết</a>
+    </div>
+  </div>
+
+  <!-- Banner dọc hai bên (chỉ hiện trên màn hình rộng) -->
+  <aside class="rail rail-l" id="railL"><a href="#/khuyen-mai" aria-label="Camera giảm sốc tới 50%"><img src="assets/banners/camera.webp" alt="Camera giảm sốc tới 50%" /></a></aside>
+  <aside class="rail rail-r" id="railR"><a href="#/khuyen-mai" aria-label="Camera giảm sốc tới 50%"><img src="assets/banners/camera.webp" alt="Camera giảm sốc tới 50%" /></a></aside>
+
+  <main id="view" class="view"></main>
+
+  <footer class="ftr">
+    <div class="ftr-in">
+      <div><b>ElectronicY</b><p>Điện máy chính hãng · Giao và lắp đặt tận nhà tại TP.HCM</p></div>
+      <div><b>Chính sách</b><p>Đổi trả 30 ngày nếu lỗi nhà sản xuất<br />Bảo hành 12–24 tháng theo serial<br />Miễn phí giao hàng đơn trên 5 triệu</p></div>
+      <div><b>Hỗ trợ</b><p>Tổng đài 1900 0000 (8:00–21:00)<br /><a href="#/ho-tro">Tra cứu bảo hành</a> · <a href="#" onclick="openChat();return false">Chat với chúng tôi</a></p></div>
+    </div>
+  </footer>
+
+  <!-- Khung chat hỗ trợ -->
+  <button class="chat-fab" id="chatFab" type="button" onclick="openChat()" aria-label="Mở khung chat hỗ trợ"><i class="fa-solid fa-comments"></i><span>Hỗ trợ</span><em id="chatDot" hidden></em></button>
+  <section class="chat-box" id="chatBox" aria-label="Chat hỗ trợ" hidden>
+    <header>
+      <img src="assets/logo-mark.svg" alt="" />
+      <div><b id="chatWho">Trợ lý ảo ElectronicY</b><small id="chatSub">Trả lời ngay</small></div>
+      <button type="button" class="ic" title="Bắt đầu hội thoại mới" aria-label="Hội thoại mới" onclick="startChat(true)"><i class="fa-solid fa-rotate-right"></i></button>
+      <button type="button" class="ic" aria-label="Thu nhỏ" onclick="closeChat()"><i class="fa-solid fa-minus"></i></button>
+    </header>
+    <div class="chat-log" id="chatLog"></div>
+    <form class="chat-in" id="chatForm">
+      <label class="ic" title="Đính kèm ảnh/video" aria-label="Đính kèm"><i class="fa-solid fa-paperclip"></i><input type="file" id="chatFile" accept="image/*,video/*" hidden /></label>
+      <input id="chatText" placeholder="Nhập tin nhắn…" autocomplete="off" aria-label="Tin nhắn" />
+      <button type="submit" class="send" aria-label="Gửi"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sheet" id="sheet" onclick="if(event.target===this)closeSheet()"><div class="sheet-in" id="sheetIn"></div></div>
+
+  <script src="js/engine.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ElectronicY">
+  <defs>
+    <linearGradient id="eyArmL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5fd3ff"/><stop offset="1" stop-color="#2f8cf0"/>
+    </linearGradient>
+    <linearGradient id="eyArmR" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#48c6ff"/><stop offset=".55" stop-color="#4f7cf5"/><stop offset="1" stop-color="#8a5cf0"/>
+    </linearGradient>
+    <linearGradient id="eyOrbit" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#36c2ff"/><stop offset="1" stop-color="#8a5cf0"/>
+    </linearGradient>
+    <radialGradient id="eyDot" cx=".35" cy=".35" r=".7">
+      <stop offset="0" stop-color="#ffe9a3"/><stop offset="1" stop-color="#f2a516"/>
+    </radialGradient>
+  </defs>
+  <path d="M6.5 44.5c-4-6.2 10.6-16 32.6-21.9 6.4-1.7 12.4-2.8 17.6-3.2" fill="none" stroke="url(#eyOrbit)" stroke-width="2.6" stroke-linecap="round" opacity=".9"/>
+  <path d="M8 11.5h12.2l13.6 18.6-6.4 8.7z" fill="url(#eyArmL)"/>
+  <path d="M42.6 11.5H55L37.8 36.2V55h-10V38.6z" fill="url(#eyArmR)"/>
+  <path d="M6.5 44.5c3.6 5.6 19.7 4.1 36-3.4" fill="none" stroke="url(#eyOrbit)" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="56.6" cy="12.6" r="4.4" fill="url(#eyDot)"/>
+</svg>
